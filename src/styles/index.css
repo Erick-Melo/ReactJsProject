@@ -18,3 +18,15 @@
   flex-direction: column;
   justify-content: center;
 }
+body::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #3d3f42ac;
+  border-radius: 20px;
+  border: 3px solid transparent;
+}
