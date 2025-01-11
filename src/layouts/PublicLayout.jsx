@@ -1,10 +1,7 @@
 export default function PublicLayout({ children }) {
   return (
-    <div className="min-h-screen flex flex-col">
-      <main className="flex-1 container mx-auto px-4 py-8">{children}</main>
-      <footer className="bg-gray-200 text-center py-4">
-        © 2025 Erick-Melo ltda
-      </footer>
+    <div className="min-h-screen bg-gray-200 text-gray-600 dark:bg-gray-800 dark:text-gray-200">
+      {children}
     </div>
   );
 }
