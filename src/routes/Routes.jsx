@@ -3,6 +3,7 @@ import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import PrivateRoute from "./PrivateRoute";
 import RedirectRoute from "./RedirectRoute";
+import Tools from "../pages/Tools/Tools";
 
 export function AppRoutes() {
   return (
@@ -13,6 +14,14 @@ export function AppRoutes() {
           element={
             <PrivateRoute>
               <Home />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/tools"
+          element={
+            <PrivateRoute>
+              <Tools />
             </PrivateRoute>
           }
         />

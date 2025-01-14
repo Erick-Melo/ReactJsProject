@@ -24,7 +24,7 @@ export default function NavBar({ currentPage }) {
             href: "/",
             current: true,
           },
-          { name: "Ferramentas", href: "/", current: true },
+          { name: "Ferramentas", href: "/tools", current: true },
           { name: "Dashboard", href: "/", current: true },
           { name: "Notícias", href: "/", current: true },
           { name: "Tabelas", href: "/", current: true },
