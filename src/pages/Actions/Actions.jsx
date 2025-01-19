@@ -1,8 +1,8 @@
 import MainLayout from "../../layouts/MainLayout";
 
-export default function Tools() {
+export default function Actions() {
   return (
     <MainLayout>
-      Ferramentas
+      Ações
     </MainLayout>
   )}

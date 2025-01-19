@@ -4,6 +4,11 @@ import Login from "../pages/Login/Login";
 import PrivateRoute from "./PrivateRoute";
 import RedirectRoute from "./RedirectRoute";
 import Tools from "../pages/Tools/Tools";
+import Dashboard from "../pages/Dashboard/Dashboard";
+import Actions from "../pages/Actions/Actions";
+import News from "../pages/News/News";
+import Tables from "../pages/Tables/Tables";
+import UserProfile from "../pages/UserProfile/UserProfile";
 
 export function AppRoutes() {
   return (
@@ -22,6 +27,46 @@ export function AppRoutes() {
           element={
             <PrivateRoute>
               <Tools />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/dashboard"
+          element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/actions"
+          element={
+            <PrivateRoute>
+              <Actions />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/tables"
+          element={
+            <PrivateRoute>
+              <Tables />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/news"
+          element={
+            <PrivateRoute>
+              <News />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <PrivateRoute>
+              <UserProfile />
             </PrivateRoute>
           }
         />

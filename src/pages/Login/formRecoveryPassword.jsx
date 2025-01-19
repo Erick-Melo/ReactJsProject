@@ -1,6 +1,6 @@
 import { useState } from "react";
-import ButtonLarge from "../../components/Buttons/ButtonLarge/ButtonLarge";
-import ThemeToggleButton from "../../components/Buttons/ThemeToggleButton/ThemeToggleButton";
+import ButtonLarge from "../../components/Buttons/ButtonLarge";
+import ThemeToggleButton from "../../components/Buttons/ThemeToggleButton";
 
 export default function formRecoveryPassword({ setTab }) {
   const [err, setErr] = useState(false);

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import FormLoginWithSocialNw from "./FormLoginWithSocialNw";
-import ButtonLarge from "../../components/Buttons/ButtonLarge/ButtonLarge";
-import ThemeToggleButton from "../../components/Buttons/ThemeToggleButton/ThemeToggleButton";
+import ButtonLarge from "../../components/Buttons/ButtonLarge";
+import ThemeToggleButton from "../../components/Buttons/ThemeToggleButton";
 
 export default function FormLogin({ setErr, setTab }) {
   const [username, setUsername] = useState("");

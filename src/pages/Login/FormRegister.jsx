@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import FormLoginWithSocialNw from "./FormLoginWithSocialNw";
-import ButtonLarge from "../../components/Buttons/ButtonLarge/ButtonLarge";
+import ButtonLarge from "../../components/Buttons/ButtonLarge";
 import InputLogin from "../../components/Inputs/InputLogin";
-import ThemeToggleButton from "../../components/Buttons/ThemeToggleButton/ThemeToggleButton";
+import ThemeToggleButton from "../../components/Buttons/ThemeToggleButton";
 
 export default function FormRegister({ setErr, setTab }) {
   const navigate = useNavigate();

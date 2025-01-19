@@ -12,7 +12,7 @@ import { Fragment, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaBars, FaRegUserCircle } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
-import ThemeToggleButton from "../Buttons/ThemeToggleButton/ThemeToggleButton";
+import ThemeToggleButton from "../Buttons/ThemeToggleButton";
 import logo from "../../assets/logos/logo_transparentbg.png";
 
 export default function NavBar({ currentPage }) {
@@ -25,14 +25,14 @@ export default function NavBar({ currentPage }) {
             current: true,
           },
           { name: "Ferramentas", href: "/tools", current: true },
-          { name: "Dashboard", href: "/", current: true },
-          { name: "Notícias", href: "/", current: true },
-          { name: "Tabelas", href: "/", current: true },
-          { name: "Ações", href: "/", current: true },
+          { name: "Dashboard", href: "/dashboard", current: true },
+          { name: "Notícias", href: "/news", current: true },
+          { name: "Tabelas", href: "/tables", current: true },
+          { name: "Ações", href: "/actions", current: true },
         ]
       : [
           { name: "Início", href: "/", current: true },
-          { name: "Notícias", href: "/", current: true },
+          { name: "Notícias", href: "/news", current: true },
         ]
   );
   const navigate = useNavigate();
@@ -45,7 +45,7 @@ export default function NavBar({ currentPage }) {
   return (
     <Disclosure
       as="nav"
-      className="bg-white text-black dark:bg-gray-800 dark:text-gray-200 lg:px-6 shadow-md fixed top-0 w-full sm:max-w-[99vw]">
+      className="z-10 bg-white text-black dark:bg-gray-800 dark:text-gray-200 lg:px-6 shadow-md fixed top-0 w-full sm:max-w-[99vw]">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-[1286px] px-2 sm:px-2 md:px-6 lg:px-8">
@@ -118,7 +118,7 @@ export default function NavBar({ currentPage }) {
                     <MenuItems className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-gray-100 dark:bg-gray-600 py-1 ">
                       <MenuItem>
                         <a
-                          href="#"
+                          href="/profile"
                           className="block px-4 py-2 text-sm dark:bg-gray-600 dark:text-gray-300 text-start"
                           >
                           Perfil

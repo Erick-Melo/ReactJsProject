@@ -1,8 +1,8 @@
 import MainLayout from "../../layouts/MainLayout";
 
-export default function Tools() {
+export default function UserProfile() {
   return (
     <MainLayout>
-      Ferramentas
+      Perfil do usuário
     </MainLayout>
   )}

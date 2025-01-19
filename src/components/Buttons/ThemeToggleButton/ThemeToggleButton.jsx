@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import sun from "../../../assets/icons/sun.svg";
 import moon from "../../../assets/icons/moon.svg";
 
-function ThemeToggleButton({ setRefresh = () => {} }) {
+const ThemeToggleButton = ({ setRefresh = () => {} }) => {
   const [isDarkMode, setIsDarkMode] = useState(
     () => localStorage.getItem("theme") === "dark"
   );
@@ -42,6 +42,6 @@ function ThemeToggleButton({ setRefresh = () => {} }) {
       </label>
     </div>
   );
-}
+};
 
 export default ThemeToggleButton;
