@@ -12,36 +12,51 @@ import MapRegionChart from "../../components/Charts/MapRegionChart";
 import { defaultDataMap } from "../../constants/defaultDataMap";
 import { randomDecimalGenerator } from "../../utils/randomDecimalGenerator";
 import RadarChart from "../../components/Charts/RadarChart";
+import { data } from "react-router-dom";
+import MixedBarsLinesChart from "../../components/Charts/MixedBarsLinesChart";
 
 const Dashboard = () => {
-  function createInitialData() {
-    const labels = Array.from({ length: 12 }, (_, i) => `Data ${i + 1}`);
-    const data = Array(12).fill(0);
-    return { labels, data };
+  function createInitialData(key) {
+    if (key !== "dataRadar") {
+      const labels = Array.from({ length: 12 }, (_, i) => `Data ${i + 1}`);
+      const data = Array(12).fill(0);
+      return { labels, data };
+    } else {
+      const labels = Array.from({ length: 7 }, (_, i) => `Data ${i + 1}`);
+      const data = Array(4).fill(Array(7).fill(0));
+      return { labels, data };
+    }
   }
   const [chartData, setChartData] = useState({
-    dataLine: createInitialData(),
-    dataBar: createInitialData(),
-    dataBar2: createInitialData(),
-    dataDoughnut: createInitialData(),
-    dataRadar: {
-      labels: ["a", "b", "c"],
-      data: [
-        { label: "a", value: 10 },
-        { label: "b", value: 12 },
-        { label: "c", value: 20 },
-      ],
-    },
+    dataLine: createInitialData("dataLine"),
+    dataBar: createInitialData("dataBar"),
+    dataBar2: createInitialData("dataBar2"),
+    dataDoughnut: createInitialData("dataDoughnut"),
+    dataRadar: createInitialData("dataRadar"),
+    dataBarsMixed: createInitialData("dataBarsMixed"),
+    dataLinesMixed: createInitialData("dataLinesMixed"),
   });
   const [mapRegion, setMapRegion] = useState(defaultDataMap);
   const randomizeData = (key) => {
-    setChartData((prevData) => ({
-      ...prevData,
-      [key]: {
-        ...prevData[key],
-        data: randomNumbersGenerator(1, 50, 12),
-      },
-    }));
+    if (key !== "dataRadar") {
+      setChartData((prevData) => ({
+        ...prevData,
+        [key]: {
+          ...prevData[key],
+          data: randomNumbersGenerator(1, 50, 12),
+        },
+      }));
+    } else {
+      setChartData((prevData) => ({
+        ...prevData,
+        [key]: {
+          ...prevData[key],
+          data: Array(4)
+            .fill(null)
+            .map(() => randomNumbersGenerator(1, 50, 7)),
+        },
+      }));
+    }
   };
   const randomizeMapData = () => {
     const newData = [...defaultDataMap];
@@ -52,7 +67,7 @@ const Dashboard = () => {
   };
 
   return (
-    <MainLayout>
+    <MainLayout page="Dashboard">
       <div className="flex flex-col gap-3 mt-3 px-2 sm:px-4 lg:px-6">
         <div className="grid sm:grid-cols-2 gap-3">
           <CardDashboard
@@ -102,7 +117,7 @@ const Dashboard = () => {
               />
             </div>
           </CardChart>
-          <CardChart title={"Faturamento por Categoria"}>
+          <CardChart title={"Faturamento por Tipo"}>
             <DoughnutChart data={chartData.dataDoughnut} />
             <div className="absolute top-1 right-1">
               <ButtonSmall
@@ -113,20 +128,40 @@ const Dashboard = () => {
           </CardChart>
         </div>
         <div className="grid sm:grid-cols-2 gap-3">
-          <CardChart title={"Faturamento por Estado"} maxHeight={false}>
+          <CardChart title={"Faturamento por Estado"} maxHeight={"h-[350px]"}>
             <MapRegionChart data={mapRegion} />
             <div className="absolute top-1 right-1">
               <ButtonSmall onclick={randomizeMapData} text="icon-refresh" />
             </div>
           </CardChart>
-          
-          <CardChart title={"Faturamento por Estado"} maxHeight={false}>
-          <RadarChart data={chartData.dataRadar} />
+
+          <CardChart title={"Despesas por Categoria"} maxHeight={"h-[350px]"}>
+            <RadarChart data={chartData.dataRadar} />
             <div className="absolute top-1 right-1">
-              <ButtonSmall onclick={randomizeMapData} text="icon-refresh" />
+              <ButtonSmall
+                onclick={() => randomizeData("dataRadar")}
+                text="icon-refresh"
+              />
             </div>
           </CardChart>
         </div>
+        <CardChart
+          title={"Comparativo Faturamento x Meta"}
+          maxHeight={"h-[350px]"}>
+          <MixedBarsLinesChart
+            dataBars={chartData.dataBarsMixed}
+            dataLines={chartData.dataLinesMixed}
+          />
+          <div className="absolute top-1 right-1">
+            <ButtonSmall
+              onclick={() => {
+                randomizeData("dataBarsMixed");
+                randomizeData("dataLinesMixed");
+              }}
+              text="icon-refresh"
+            />
+          </div>
+        </CardChart>
       </div>
     </MainLayout>
   );

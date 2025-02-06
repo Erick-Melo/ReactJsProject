@@ -12,6 +12,7 @@ import {
   Legend,
 } from "chart.js";
 import { Radar } from "react-chartjs-2";
+import ChartDataLabels from "chartjs-plugin-datalabels";
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -24,7 +25,7 @@ ChartJS.register(
   Legend
 );
 const RadarChart = ({ data }) => {
-  console.log(data)
+  const darkTheme = localStorage.getItem("theme") === "dark";
   const labels = data.labels;
   const borderColors = [
     "rgb(255, 165, 0)",
@@ -33,32 +34,35 @@ const RadarChart = ({ data }) => {
     "rgb(1, 255, 255)",
   ];
   const backgroundColors = [
-    "rgb(255, 165, 0)",
-    "rgba(255, 255, 0, 1)",
-    "rgba(110, 255, 0, 1)",
-    "rgba(1, 255, 255, 1)",
+    "rgb(255, 165, 0, .3)",
+    "rgba(255, 255, 0, .3)",
+    "rgba(110, 255, 0, .3)",
+    "rgba(1, 255, 255, .3)",
   ];
   const dataChart = {
     labels: labels,
     datasets: data.data.map((item, index) => ({
-      label: item.label,
-      data: item.data,
+      label: data.labels[index],
+      data: item,
       backgroundColor: backgroundColors[index],
       borderColor: borderColors[index],
       pointRadius: 0,
       pointHoverRadius: 0,
-      fill: -1,
+      fill: true,
     })),
   };
   const options = {
-    responsive: false,
+    responsive: true,
     maintainAspectRatio: false,
-    barPercentage: 0.6,
+    barPercentage: 1,
     borderRadius: 3,
     tension: 0,
     layout: {
-      padding: {
-        top: 24,
+      padding: 10,
+    },
+    elements: {
+      line: {
+        borderWidth: 2,
       },
     },
     plugins: {
@@ -69,34 +73,43 @@ const RadarChart = ({ data }) => {
         display: true,
         position: "bottom",
         labels: {
-          color: "white",
+          color: darkTheme ? "white" : "gray",
           font: {
             size: 12,
           },
         },
       },
+      labels: {
+        display: false
+      }
     },
     scales: {
       x: {
-        ticks: {
-          color: "white",
-          font: { size: window.screen.availWidth <= 500 ? 7 : 12 },
-        },
+        display: false,
       },
       y: {
-        ticks: {
-          color: "white",
-          font: { size: window.screen.availWidth <= 500 ? 7 : 12 },
-          stepSize: 5,
-        },
-        position: "right",
+        display: false,
+      },
+      r: {
         grid: {
-          color: "white",
+          display: false,
+        },
+        ticks: {
+          display: false,
+        },
+        angleLines: {
+          color: darkTheme ? "white" : "gray",
           lineWidth: 0.5,
         },
       },
     },
+    interaction: {
+      mode: "index",
+      intersect: false,
+    },
   };
-  return <Radar data={dataChart} options={options} />;
+  return (
+    <Radar data={dataChart} options={options} plugins={[ChartDataLabels]} />
+  );
 };
 export default RadarChart;

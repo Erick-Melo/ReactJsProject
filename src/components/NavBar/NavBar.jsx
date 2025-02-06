@@ -45,7 +45,7 @@ export default function NavBar({ currentPage }) {
   return (
     <Disclosure
       as="nav"
-      className="z-10 bg-white text-black dark:bg-gray-800 dark:text-gray-200 lg:px-6 shadow-md fixed top-0 w-full sm:max-w-[99vw]">
+      className="z-10 bg-white text-black dark:bg-gray-800 dark:text-gray-200 lg:px-6 shadow-md fixed top-0 w-full sm:max-w-screen">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-[1286px] px-2 sm:px-2 md:px-6 lg:px-8">

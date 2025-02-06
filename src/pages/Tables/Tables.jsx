@@ -2,7 +2,7 @@ import MainLayout from "../../layouts/MainLayout";
 
 export default function Tables() {
   return (
-    <MainLayout>
+    <MainLayout page="Tabelas">
       Tabelas
     </MainLayout>
   )}

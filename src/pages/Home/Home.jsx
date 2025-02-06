@@ -9,7 +9,7 @@ import OutlookButton from "../../components/Buttons/SocialNetworks/OutlookButton
 
 export default function Home() {
   return (
-    <MainLayout>
+    <MainLayout page="Início">
       <div className="w-full flex flex-col gap-3 items-center justify-center">
         <div
           className="bg-contain bg-center w-40 h-40 rounded-full my-4"

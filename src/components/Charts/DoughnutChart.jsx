@@ -19,9 +19,13 @@ export default function DoughnutChart({ data }) {
   };
   const options = {
     maintainAspectRatio: false,
+    responsible: true,
     cutout: "65%",
     layout: {
-      padding: 10
+      padding: {
+        top: 10,
+        bottom: 10,
+      }
     },
     plugins: {
       title: {
@@ -29,7 +33,7 @@ export default function DoughnutChart({ data }) {
       },
       legend: {
         display: true,
-        position: "right",
+        position: "bottom",
         labels: {
           color: darkTheme ? "white" : "gray",
         }

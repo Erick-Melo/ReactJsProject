@@ -24,7 +24,7 @@ export default function NewsManager() {
   }, [newsSelected]);
 
   return (
-    <MainLayout>
+    <MainLayout page="Notícias">
       <LuCornerUpLeft
         className={`${
           newsSelected ? "block" : "hidden"

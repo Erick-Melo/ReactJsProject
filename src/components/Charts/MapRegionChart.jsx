@@ -1,9 +1,9 @@
 import Chart from "react-google-charts";
-import { defaultDataMap } from "../../constants/defaultDataMap";
 
 export default function MapRegionChart({ data }) {
 
   const options = {
+    tooltip: { isHtml: true },
     region: "BR",
     resolution: "provinces",
     displayMode: "regions",
@@ -22,9 +22,10 @@ export default function MapRegionChart({ data }) {
   return (
     <Chart
       chartType="GeoChart"
-      width="100%"
       data={data}
       options={options}
+      height={"100%"}
+      keepAspectRatio = {true}
     />
   );
 }

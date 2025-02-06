@@ -13,7 +13,7 @@ export default function News() {
   const displayedNews = showAll ? sortedNewsList : sortedNewsList.slice(0, 6);
 
   return (
-    <MainLayout>
+    <MainLayout page="Notícias">
       {newsList.length > 0 ? (
         <div className="flex flex-col gap-3 justify-center items-center w-full">
           <div className="text-2xl font-bold my-3">Últimas novidades:</div>
