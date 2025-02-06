@@ -24,11 +24,11 @@ export default function NavBar({ currentPage }) {
             href: "/",
             current: true,
           },
-          { name: "Ferramentas", href: "/tools", current: true },
+          // { name: "Ferramentas", href: "/tools", current: true },
           { name: "Dashboard", href: "/dashboard", current: true },
           { name: "Notícias", href: "/news", current: true },
-          { name: "Tabelas", href: "/tables", current: true },
-          { name: "Ações", href: "/actions", current: true },
+          // { name: "Tabelas", href: "/tables", current: true },
+          // { name: "Ações", href: "/actions", current: true },
         ]
       : [
           { name: "Início", href: "/", current: true },
