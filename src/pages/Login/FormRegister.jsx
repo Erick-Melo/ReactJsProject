@@ -5,7 +5,7 @@ import ButtonLarge from "../../components/Buttons/ButtonLarge";
 import InputLogin from "../../components/Inputs/InputLogin";
 import ThemeToggleButton from "../../components/Buttons/ThemeToggleButton";
 
-export default function FormRegister({ setErr, setTab }) {
+export default function FormRegister({ setTab }) {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [remember, setRemember] = useState(false);
@@ -15,8 +15,7 @@ export default function FormRegister({ setErr, setTab }) {
     const formData = new FormData(e.currentTarget);
     const responseBody = {};
     formData.forEach((value, property) => (responseBody[property] = value));
-    console.log(responseBody);
-    if (responseBody.name !== "" ) {
+    if (responseBody.name !== "") {
       localStorage.setItem("user", responseBody.name);
       navigate("/");
     }

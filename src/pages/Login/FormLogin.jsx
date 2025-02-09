@@ -4,8 +4,8 @@ import FormLoginWithSocialNw from "./FormLoginWithSocialNw";
 import ButtonLarge from "../../components/Buttons/ButtonLarge";
 import ThemeToggleButton from "../../components/Buttons/ThemeToggleButton";
 
-export default function FormLogin({ setErr, setTab }) {
-  const [username, setUsername] = useState("");
+export default function FormLogin({ setTab }) {
+  const [username, setUsername] = useState("user");
   const [remember, setRemember] = useState(false);
   const navigate = useNavigate();
 

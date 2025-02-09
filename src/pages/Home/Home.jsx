@@ -17,13 +17,23 @@ export default function Home() {
         />
         <div className="text-2xl font-bold">Olá, Sou o Erick!</div>
         <div className="px-5 text-justify max-w-2xl">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          Olá, sou o Erick Melo, um desenvolvedor front end com mais de dois
+          anos de experiência, atualmente trabalhando como PJ numa start-up.
+          <br />
+          Me formei em ciências da computação em julho de 2024.
+          <br /> Desenvolvi alguns sistemas e web sites sem instrução de um
+          desenvolvedor de nível superior. Aprendi muito no processo, e tenho me
+          interessado cada vez mais em me especializar e evoluir como
+          desenvolvedor.
+          <br /> Por tanto estou saindo da minha zona de conforto e correndo
+          atrás de evolução na minha carreira. Tenho estudado bastante e me
+          aprofundado em tecnologias que tinham apenas visto de relance na
+          faculdade.
+          <br />
+          Esse sistema é um compilado de algumas coisas que aprendi e apliquei
+          no meu trabalho; pretendo incrementar esse site com atualizações
+          semanais para estar sempre incrementando meu portfólio de
+          conhecimentos.
         </div>
         <div className="text-xl font-bold">Minhas redes sociais</div>
         <div className="flex flex-row gap-2">

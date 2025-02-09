@@ -14,8 +14,12 @@ import { FaBars, FaRegUserCircle } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
 import ThemeToggleButton from "../Buttons/ThemeToggleButton";
 import logo from "../../assets/logos/logo_transparentbg.png";
+import ButtonHelp from "../Buttons/ButtonHelp/ButtonHelp";
+import ModalInfo from "../Modals/ModalInfo";
+import { textInfo } from "../../constants/textInfo";
 
 export default function NavBar({ currentPage }) {
+  const [openModalInfo, setOpenModalInfo] = useState(false);
   const [navigation, setNavigation] = useState(
     localStorage.getItem("user")
       ? [
@@ -85,6 +89,12 @@ export default function NavBar({ currentPage }) {
                   </div>
                 </div>
               </div>
+              <ButtonHelp
+                onclick={() => {
+                  setOpenModalInfo(true);
+                }}
+                extraClasses="mr-4"
+              />
               <div className="hidden lg:block">
                 <ThemeToggleButton />
               </div>
@@ -94,7 +104,14 @@ export default function NavBar({ currentPage }) {
                   <div>
                     {localStorage.getItem("user") ? (
                       <MenuButton className="flex items-center rounded-full p-1 hover:bg-[#fff3] hover:transform hover:scale-105 duration-200">
-                        <FaRegUserCircle className="h-8 w-8 rounded-lg" />
+                        {localStorage.getItem("profile") ? (
+                          <img
+                            src={localStorage.getItem("profile")}
+                            className="h-8 w-8 rounded-full object-cover"
+                          />
+                        ) : (
+                          <FaRegUserCircle className="h-8 w-8 rounded-lg" />
+                        )}
                         <span className="pl-3 whitespace-nowrap">
                           Olá, {localStorage.getItem("user")}
                         </span>
@@ -119,8 +136,7 @@ export default function NavBar({ currentPage }) {
                       <MenuItem>
                         <a
                           href="/profile"
-                          className="block px-4 py-2 text-sm dark:bg-gray-600 dark:text-gray-300 text-start"
-                          >
+                          className="block px-4 py-2 text-sm dark:bg-gray-600 dark:text-gray-300 text-start">
                           Perfil
                         </a>
                       </MenuItem>
@@ -137,6 +153,11 @@ export default function NavBar({ currentPage }) {
                 </Menu>
               </div>
             </div>
+            <ModalInfo
+              open={openModalInfo}
+              setOpen={setOpenModalInfo}
+              text={textInfo}
+            />
           </div>
 
           <DisclosurePanel className="sm:hidden">

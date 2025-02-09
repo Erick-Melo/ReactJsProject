@@ -30,6 +30,18 @@ body::-webkit-scrollbar-thumb {
   border-radius: 20px;
   border: 3px solid transparent;
 }
+.divOverflow::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+.divOverflow::-webkit-scrollbar-track {
+  background: transparent;
+}
+.divOverflow::-webkit-scrollbar-thumb {
+  background-color: #3d3f42ac;
+  border-radius: 20px;
+  border: 3px solid transparent;
+}
 .sss {
   color: #f5d15d;
 }

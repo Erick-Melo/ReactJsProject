@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import PublicLayout from "../../layouts/PublicLayout";
 import logo from "../../assets/logos/logo_transparentbg.png";
 import loginImg from "../../assets/images/login-img.svg";
@@ -6,11 +5,13 @@ import { useState } from "react";
 import FormLogin from "./FormLogin";
 import FormRegister from "./FormRegister";
 import FormRecoveryPassword from "./formRecoveryPassword";
+import ModalInfo from "../../components/Modals/ModalInfo";
+import { textInfo } from "../../constants/textInfo";
+import ButtonHelp from "../../components/Buttons/ButtonHelp";
 
 export default function Login() {
-  const navigate = useNavigate();
   const [tab, setTab] = useState("login");
-  const [err, setErr] = useState(false);
+  const [openModalInfo, setOpenModalInfo] = useState(false);
 
   return (
     <PublicLayout>
@@ -21,15 +22,21 @@ export default function Login() {
             Faça Login e desfrute de funcionalidades exclusivas.
           </div>
           <img src={loginImg} className="bg-cover w-5/12 mx-auto" />
+          <ButtonHelp onclick={() => setOpenModalInfo(true)} />
         </div>
         {tab === "login" ? (
-          <FormLogin setErr={setErr} setTab={setTab} />
+          <FormLogin setTab={setTab} />
         ) : tab === "recoveryPassword" ? (
-          <FormRecoveryPassword setErr={setErr} setTab={setTab} />
+          <FormRecoveryPassword setTab={setTab} />
         ) : tab === "register" ? (
-          <FormRegister setErr={setErr} setTab={setTab} />
+          <FormRegister setTab={setTab} />
         ) : null}
       </section>
+      <ModalInfo
+        open={openModalInfo}
+        setOpen={setOpenModalInfo}
+        text={textInfo}
+      />
     </PublicLayout>
   );
 }

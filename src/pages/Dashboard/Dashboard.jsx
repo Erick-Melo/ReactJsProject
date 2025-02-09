@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SingleLineChart from "../../components/Charts/SingleLineChart";
 import MainLayout from "../../layouts/MainLayout";
 import { randomNumbersGenerator } from "../../utils/randomNumbersGenerator";
@@ -12,7 +12,6 @@ import MapRegionChart from "../../components/Charts/MapRegionChart";
 import { defaultDataMap } from "../../constants/defaultDataMap";
 import { randomDecimalGenerator } from "../../utils/randomDecimalGenerator";
 import RadarChart from "../../components/Charts/RadarChart";
-import { data } from "react-router-dom";
 import MixedBarsLinesChart from "../../components/Charts/MixedBarsLinesChart";
 
 const Dashboard = () => {
@@ -65,6 +64,16 @@ const Dashboard = () => {
     }
     setMapRegion(newData);
   };
+  useEffect(() => {
+    randomizeData("dataLine");
+    randomizeData("dataBar");
+    randomizeData("dataBar2");
+    randomizeData("dataDoughnut");
+    randomizeData("dataRadar");
+    randomizeData("dataBarsMixed");
+    randomizeData("dataLinesMixed");
+    randomizeMapData();
+  }, []);
 
   return (
     <MainLayout page="Dashboard">
