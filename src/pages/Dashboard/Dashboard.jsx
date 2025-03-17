@@ -137,7 +137,7 @@ const Dashboard = () => {
           </CardChart>
         </div>
         <div className="grid sm:grid-cols-2 gap-3">
-          <CardChart title={"Faturamento por Estado"} maxHeight={"h-[350px]"}>
+          <CardChart title={"Faturamento por Estado"} maxHeight={"sm:h-[350px]"}>
             <MapRegionChart data={mapRegion} />
             <div className="absolute top-1 right-1">
               <ButtonSmall onclick={randomizeMapData} text="icon-refresh" />
@@ -155,7 +155,7 @@ const Dashboard = () => {
           </CardChart>
         </div>
         <CardChart
-          title={"Comparativo Faturamento x Meta"}
+          title={"Faturamento x Meta"}
           maxHeight={"h-[350px]"}>
           <MixedBarsLinesChart
             dataBars={chartData.dataBarsMixed}

@@ -24,8 +24,8 @@ export default function MapRegionChart({ data }) {
       chartType="GeoChart"
       data={data}
       options={options}
-      height={"100%"}
-      keepAspectRatio = {true}
+      width="100%"
+      keepAspectRatio={true}
     />
   );
 }

@@ -37,6 +37,7 @@ export function VerticalBarChart({ data, mode = "type1" }) {
   ];
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
     layout: {
       padding: 10,
     },
@@ -55,7 +56,6 @@ export function VerticalBarChart({ data, mode = "type1" }) {
         return value;
       },
     },
-    maintainAspectRatio: false,
     barPercentage: 1,
     borderRadius: 7,
     scales: {

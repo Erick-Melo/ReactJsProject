@@ -14,7 +14,7 @@ export default function News() {
   const sortedNewsList = newsList.sort(
     (a, b) => new Date(b.data) - new Date(a.data)
   );
-  const displayedNews = showAll ? sortedNewsList : sortedNewsList.slice(0, 6);
+  const displayedNews = showAll ? sortedNewsList : sortedNewsList.slice(0, 8);
   useEffect(() => {
     if (imageRef.current) {
       imageRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -31,7 +31,7 @@ export default function News() {
               onClick={() => setNewsSelected(null)}>
               Últimas novidades:
             </div>
-            <div className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center items-center">
+            <div className="grid sm:grid-cols-3 xl:grid-cols-4 gap-3 justify-center items-center">
               {displayedNews
                 .sort((a, b) => new Date(b.data) - new Date(a.data))
                 .map((news, index) => (

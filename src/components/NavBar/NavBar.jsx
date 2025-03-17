@@ -93,7 +93,7 @@ export default function NavBar({ currentPage }) {
                 onclick={() => {
                   setOpenModalInfo(true);
                 }}
-                extraClasses="mr-4"
+                extraClasses="hidden sm:block mr-4"
               />
               <div className="hidden lg:block">
                 <ThemeToggleButton />
@@ -112,7 +112,7 @@ export default function NavBar({ currentPage }) {
                         ) : (
                           <FaRegUserCircle className="h-8 w-8 rounded-lg" />
                         )}
-                        <span className="pl-3 whitespace-nowrap">
+                        <span className="pl-3 max-w-[115px] overflow-hidden text-ellipsis whitespace-nowrap">
                           Olá, {localStorage.getItem("user")}
                         </span>
                       </MenuButton>
@@ -166,6 +166,7 @@ export default function NavBar({ currentPage }) {
                 <DisclosureButton
                   key={item.name}
                   as="a"
+                  href={item.href}
                   className="text-black dark:text-gray-300 font-bold hover:bg-gray-200 px-3 py-2 rounded-md">
                   {item.name}
                 </DisclosureButton>

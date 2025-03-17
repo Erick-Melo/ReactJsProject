@@ -6,8 +6,8 @@ import RedirectRoute from "./RedirectRoute";
 import Tools from "../pages/Tools/Tools";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import Actions from "../pages/Actions/Actions";
-import News from "../pages/News/News";
-import Tables from "../pages/Tables/Tables";
+import News from "../pages/News";
+import Tables from "../pages/Tables";
 import UserProfile from "../pages/UserProfile/UserProfile";
 
 export function AppRoutes() {
