@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FaCaretDown, FaCaretUp } from "react-icons/fa";
 import { getTableReturn } from "../../utils/getTableReturn";
 
-export default function TableSortable({
+export default function TableSortableSimple({
   headers,
   initialKey,
   data,

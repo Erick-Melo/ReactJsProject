@@ -1,4 +1,4 @@
-import TableSortable from "../../components/Tables/TableSortable";
+import TableSortableSimple from "../../components/Tables/TableSortableSimple";
 import MainLayout from "../../layouts/MainLayout";
 
 export default function Tables() {
@@ -54,8 +54,18 @@ export default function Tables() {
   ];
   return (
     <MainLayout page="Tabelas">
-      Tabelas
-      {/* <TableSortable data={data} headers={headers} initialKey={"data"} /> */}
+      <div className="container flex flex-col gap-3 mt-3 px-2 sm:px-4 lg:px-6">
+        <h3 className="text-2xl font-bold mb-4">Tabelas</h3>
+        <div className="grid sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded-lg shadow-md p-4">
+            <TableSortableSimple
+              data={data}
+              headers={headers}
+              initialKey={"data"}
+            />
+          </div>
+        </div>
+      </div>
     </MainLayout>
   );
 }

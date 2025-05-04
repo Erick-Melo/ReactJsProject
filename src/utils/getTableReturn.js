@@ -1,3 +1,5 @@
+import { formatDate } from "./formatDate";
+
 export const getTableReturn = (x, k) => {
   switch (k) {
     case "total":
@@ -16,9 +18,7 @@ export const getTableReturn = (x, k) => {
         maximumFractionDigits: 2,
       })}%`;
     case "data":
-      return x[k]
-        .toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" })
-        .slice(0, 10);
+      return formatDate(x[k])
     default:
       return x[k];
   }
